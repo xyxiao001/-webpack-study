@@ -1,30 +1,24 @@
 <template>
   <div>
-    test
-    {{ count }} {{ obj.foo }}
-    <button @click="increment">count++</button>
+    <p>
+      count： {{ count }}
+    </p>
+    <el-button @click="increment">count++</el-button>
   </div>
 </template>
 
 <script>
-  import { ref, reactive, onMounted } from '@vue/composition-api'
+  import { ref } from '@vue/composition-api'
   export default {
     setup() {
-      onMounted(() => {
-        console.log('mounted!')
-      })
-
       const count = ref(0)
 
-      const obj = reactive({foo: 'bar'})
-
-      function increment () {
+      const increment = () => {
         count.value++
       }
 
       return {
         count,
-        obj,
         increment
       }
     }
